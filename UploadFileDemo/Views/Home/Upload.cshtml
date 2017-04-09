@@ -1,0 +1,55 @@
+﻿@model UploadFileDemo.Models.TestModel
+
+@{
+    ViewBag.Title = "上传";
+}
+
+<h2>上传</h2>
+
+<h5>消息：@ViewBag.Msg</h5>
+
+@using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.LabelFor(m => m.Title)
+    <br />
+    @Html.EditorFor(m => m.Title)
+    @Html.ValidationMessageFor(m => m.Title)
+
+    <br />
+    @Html.LabelFor(m => m.Content)
+    <br />
+    @Html.EditorFor(m => m.Content)
+    @Html.ValidationMessageFor(m => m.Title)
+
+    <br />
+    <span>上传文件</span>
+    <br />
+    <input type="file" name="file" />
+
+    <br />
+    <br />
+    <input id="btn" type="submit" value="提交" />
+}
+<hr />
+<fieldset>
+    <legend>功能</legend>
+    <ol>
+        <li>实现基本的文件上传【标签1.0】</li>
+    </ol>
+</fieldset>
+<hr />
+<fieldset>
+    <legend>知识点</legend>
+    <p>实现上传还是使用的type=file的input控件，在表单中注意加【enctype=multipart/form-data】属性</p>
+    <p>在后台使用类型为【HttpPostedFileBase】的参数进行接收文件即可，然后使用SaveAs方法进行保存即可</p>
+</fieldset>
+<hr />
+<fieldset>
+    <legend>可能碰到的错误</legend>
+    <p>错误：HttpException (0x80004005): 超过了最大请求长度</p>
+    <p>在配置文件中添加 @(@"<httpRuntime targetFramework=""4.5"" maxRequestLength=""10240"" />")    </p>
+</fieldset>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
