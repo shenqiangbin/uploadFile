@@ -1,12 +1,15 @@
 ﻿function submitClick() {
-    fileChange(document.getElementById("fileInput"));
+    if (fileChange(document.getElementById("fileInput")))
+        $("form").submit();
 }
 
 function fileChange(target) {
     if (target.files && target.files.length != 0) {
 
-        if (checkFileType(target))
-            checkFileSize(target);
+        if (checkFileType(target) && checkFileSize(target))
+            return true;
+        else
+            return false;
 
     } else {
         showMsg("请选择文件");
@@ -20,6 +23,7 @@ function checkFileType(target) {
         showMsg("文件类型不对");
         return false;
     }
+    showMsg("");
     return true;
 }
 
@@ -39,10 +43,11 @@ function getFileType(target) {
 
 function checkFileSize(target) {
     var fileSize = getFileSize(target);
-    if (fileSize > 2) {
-        showMsg("文件大小请小于2M");
+    if (fileSize > 20) {
+        showMsg("文件大小请小于20M");
         return false;
     }
+    showMsg("");
     return true;
 }
 
