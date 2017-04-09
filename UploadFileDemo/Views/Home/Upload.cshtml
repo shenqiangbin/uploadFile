@@ -24,17 +24,21 @@
     <br />
     <span>上传文件</span>
     <br />
-    <input type="file" name="file" />
+    <input type="file" name="file" id="fileInput"/> //onchange="fileChange(this)" 也可以及时校验
+    <span id="fileMsg"></span>
 
     <br />
     <br />
-    <input id="btn" type="submit" value="提交" />
+    <input id="btn" type="submit" value="提交" onclick="submitClick()" />
 }
 <hr />
 <fieldset>
     <legend>功能</legend>
     <ol>
-        <li>实现基本的文件上传【标签1.0】</li>
+        <li>实现基本的文件上传【标签：基本的文件上传】</li>
+        <li>限制文件类型，文件大小【标签：】</li>
+        <li>体现后台上传进度【标签：】</li>
+        <li>支持多文件上传 【标签：】</li>
     </ol>
 </fieldset>
 <hr />
@@ -53,3 +57,4 @@
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
 <script src="~/Scripts/jquery.validate.min.js"></script>
 <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+<script src="~/Scripts/UploadFileCheck.js"></script>
