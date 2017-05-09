@@ -66,5 +66,18 @@ namespace UploadFileDemo.Controllers
             var size = file.ContentLength / 1024 / 1024;
             return size > 20; //如果大于20M
         }
+
+        public ActionResult UploadifyUpload()
+        {
+            return View();
+        }
+
+        [HttpPost]        
+        public ActionResult Handle(HttpPostedFileBase fileData)
+        {
+            var fileName = Path.Combine(Request.MapPath("~/Upload"), Path.GetFileName(fileData.FileName));
+            fileData.SaveAs(fileName);
+            return Json(new { Success = true, FileName = fileName });
+        }
     }
 }

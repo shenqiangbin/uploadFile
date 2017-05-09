@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewBag.Title = "UploadifyUpload";
+}
+
+<h2>UploadifyUpload</h2>
+
+<div>
+    <%--用来作为文件队列区域--%>
+    <div id="fileQueue">
+    </div>
+    <input type="file" name="uploadify" id="uploadify" />
+    <p>
+        <a href="javascript:$('#uploadify').uploadify('upload')">上传</a>|
+        <a href="javascript:$('#uploadify').uploadify('cancel')">取消上传</a>
+    </p>
+</div>
+
+<div>
+    <p>
+        后台参数名字一定要用：fileData，在请求中可以看到 Content-Disposition: form-data; name="Filedata"; filename="屏幕截图(9).png"
+    </p>
+    <p>
+        uploadify-cancel.png的路径要修改uploadify.css的内容。
+    </p>
+</div>
+
+
+@section header{    
+    <link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+}
+
+@section footer{
+    <script src="~/Scripts/uploadify/jquery.uploadify.js"></script>
+    <script src="~/Scripts/UploadifyDemo.js"></script>
+}
