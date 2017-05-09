@@ -66,7 +66,8 @@
         },
         //上传到服务器，服务器返回相应信息到data里
         'onUploadSuccess': function (file, data, response) {
-            alert(data);
+            //alert(data);
+            console.log(data);
         }
     });
 });

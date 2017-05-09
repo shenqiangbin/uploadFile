@@ -12,7 +12,9 @@
     <input type="file" name="uploadify" id="uploadify" />
     <p>
         <a href="javascript:$('#uploadify').uploadify('upload')">上传</a>|
-        <a href="javascript:$('#uploadify').uploadify('cancel')">取消上传</a>
+        <a href="javascript:$('#uploadify').uploadify('upload','*')">上传全部</a>|
+        <a href="javascript:$('#uploadify').uploadify('cancel')">取消上传</a>|
+        <a href="javascript:$('#uploadify').uploadify('cancel','*')">取消全部</a>
     </p>
 </div>
 
@@ -23,10 +25,13 @@
     <p>
         uploadify-cancel.png的路径要修改uploadify.css的内容。
     </p>
+    <p>
+        中文提示直接修改的 jquery.uploadify.js 里面的内容。
+    </p>
 </div>
 
 
-@section header{    
+@section header{
     <link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
 }
 
