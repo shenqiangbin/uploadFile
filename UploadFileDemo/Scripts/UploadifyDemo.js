@@ -1,4 +1,5 @@
 ﻿$(function () {
+
     $("#uploadify").uploadify({
         'langFile': '/Scripts/uploadify/zhLanguage.js',
         //指定swf文件
@@ -68,6 +69,11 @@
         'onUploadSuccess': function (file, data, response) {
             //alert(data);
             console.log(data);
+            var dataObj = $.parseJSON(data);
+            if (dataObj.Success) {
+                //data.FileName ThumbnailFile
+                $("#fileQueue").append($("<img src={0} style='border:1px solid red;pdding-right:5px;'/>".replace("{0}", dataObj.FileName)));
+            }
         }
     });
 });

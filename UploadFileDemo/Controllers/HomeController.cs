@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using UploadFileDemo.Lib;
 using UploadFileDemo.Models;
 
 namespace UploadFileDemo.Controllers
@@ -72,12 +73,15 @@ namespace UploadFileDemo.Controllers
             return View();
         }
 
-        [HttpPost]        
-        public ActionResult Handle(HttpPostedFileBase fileData)
+        [HttpPost]
+        public JsonResult Handle(HttpPostedFileBase fileData)
         {
-            var fileName = Path.Combine(Request.MapPath("~/Upload"), Path.GetFileName(fileData.FileName));
-            fileData.SaveAs(fileName);
-            return Json(new { Success = true, FileName = fileName });
-        }
+            string fileName = Path.GetFileName(fileData.FileName);
+            var filePath = Path.Combine(Request.MapPath("~/Upload"), fileName);
+            fileData.SaveAs(filePath);
+            var thumbnailFile = Path.Combine(Request.MapPath("~/Upload/Thumbnail"), fileName);
+            ImgHelper.GetPicThumbnail(filePath, thumbnailFile, 50, 50, 100);
+            return Json(new { Success = true, FileName = "/Upload/" + fileName, ThumbnailFile = "/Upload/Thumbnail/" + fileName });
+        }        
     }
 }

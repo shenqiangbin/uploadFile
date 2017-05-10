@@ -40,7 +40,7 @@ namespace UploadFileDemo.Lib
         /// <param name="dWidth">宽度</param>
         /// <param name="flag">压缩质量 1-100</param>
         /// <returns></returns>
-        public bool GetPicThumbnail(string sFile, string dFile, int dHeight, int dWidth, int flag)
+        public static bool GetPicThumbnail(string sFile, string dFile, int dHeight, int dWidth, int flag)
         {
             System.Drawing.Image iSource = System.Drawing.Image.FromFile(sFile);
             ImageFormat tFormat = iSource.RawFormat;
