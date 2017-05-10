@@ -1,4 +1,7 @@
 ﻿$(function () {
+    
+    //$('#lightbox_2').lightbox({ ifChange: true }); //有左右箭头
+    $('#lightbox_2').lightbox(); //无左右箭头
 
     $("#uploadify").uploadify({
         'langFile': '/Scripts/uploadify/zhLanguage.js',
@@ -72,7 +75,7 @@
             var dataObj = $.parseJSON(data);
             if (dataObj.Success) {
                 //data.FileName ThumbnailFile
-                $("#fileQueue").append($("<img src={0} style='border:1px solid red;pdding-right:5px;'/>".replace("{0}", dataObj.FileName)));
+                $("#fileQueue").append($("<img src={0} style='border:1px solid red;pdding-right:5px;'/>".replace("{0}", dataObj.ThumbnailFile)));
             }
         }
     });

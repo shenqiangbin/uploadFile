@@ -36,12 +36,35 @@
     <p>上传后对图片进行了裁剪</p>
 </div>
 
+<div id="lightbox_2">
+    <img src="/images/2-1.png" alt="#" class="lightbox-pic" data-role="lightbox" data-source="/images/2-1.png" data-group="group-2" data-id="pic_2_1" data-caption="pic_2_1">
+    <img src="/images/2-2.png" alt="#" class="lightbox-pic" data-role="lightbox" data-source="/images/2-2.png" data-group="group-2" data-id="pic_2_2" data-caption="pic_2_2">
+    <img src="/images/2-3.png" alt="#" class="lightbox-pic" data-role="lightbox" data-source="/images/2-3.png" data-group="group-2" data-id="pic_2_3" data-caption="pic_2_3">
+</div>
+
+<div id="lightbox_mask"></div>
+<div id="lightbox_popup">
+    <div class="pic-view">
+        <img src="/images/1-2.png" alt="#" class="pic">          
+    </div>
+    <div class="btn-view">
+        <a href="#" class="lbtn btn-prev">←</a>
+        <a href="#" class="lbtn btn-next">→</a>
+        <a href="#" class="lbtn btn-close">×</a>
+    </div>
+    <div class="caption-view">
+        <p>pic1</p>
+    </div>
+</div>
+
 
 @section header{
     <link href="~/Scripts/uploadify/uploadify.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/lightbox.css" rel="stylesheet" />
 }
 
 @section footer{
     <script src="~/Scripts/uploadify/jquery.uploadify.js"></script>
     <script src="~/Scripts/UploadifyDemo.js"></script>
+    <script src="~/Scripts/lightbox.js"></script>
 }
