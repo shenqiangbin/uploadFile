@@ -11,3 +11,5 @@
 错误：HttpException (0x80004005): 超过了最大请求长度
 
 在配置文件中添加 `<httpRuntime targetFramework="4.5" maxRequestLength="10240" />`
+
+## 添加Uploadify的上传功能
