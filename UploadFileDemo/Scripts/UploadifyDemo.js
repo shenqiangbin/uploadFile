@@ -1,7 +1,7 @@
 ﻿$(function () {
     
     //$('#lightbox_2').lightbox({ ifChange: true }); //有左右箭头
-    $('#lightbox_2').lightbox(); //无左右箭头
+    $('#lightbox_2').lightbox(); //无左右箭头   
 
     $("#uploadify").uploadify({
         'langFile': '/Scripts/uploadify/zhLanguage.js',
@@ -75,7 +75,16 @@
             var dataObj = $.parseJSON(data);
             if (dataObj.Success) {
                 //data.FileName ThumbnailFile
-                $("#fileQueue").append($("<img src={0} style='border:1px solid red;pdding-right:5px;'/>".replace("{0}", dataObj.ThumbnailFile)));
+                //$("#fileQueue").append($("<img src={0} style='border:1px solid red;pdding-right:5px;'/>".replace("{0}", dataObj.ThumbnailFile)));
+                
+                var s = "<img src='{0}' alt='#' class='lightbox-pic' data-role='lightbox' data-source='{1}' data-group='group-2' data-id='{2}' data-caption='{3}'>";
+                $("#fileQueue").append($(
+                                            s.replace('{0}', dataObj.ThumbnailFile)
+                                             .replace('{1}', dataObj.File)
+                                             .replace('{2}', dataObj.FileName)
+                                             .replace('{3}', dataObj.FileName)
+                                        ));
+                $('#fileQueue').lightbox(); //无左右箭头 
             }
         }
     });

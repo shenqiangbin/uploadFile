@@ -81,7 +81,7 @@ namespace UploadFileDemo.Controllers
             fileData.SaveAs(filePath);
             var thumbnailFile = Path.Combine(Request.MapPath("~/Upload/Thumbnail"), fileName);
             ImgHelper.GetPicThumbnail(filePath, thumbnailFile, 133, 200, 100);
-            return Json(new { Success = true, FileName = "/Upload/" + fileName, ThumbnailFile = "/Upload/Thumbnail/" + fileName });
-        }        
+            return Json(new { Success = true, File = "/Upload/" + fileName, ThumbnailFile = "/Upload/Thumbnail/" + fileName, FileName = fileName });
+        }
     }
 }
