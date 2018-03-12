@@ -65,7 +65,7 @@ namespace UploadFileDemo.Controllers
         private bool CheckFileSize(HttpPostedFileBase file)
         {
             var size = file.ContentLength / 1024 / 1024;
-            return size > 20; //如果大于20M
+            return size > 200; //如果大于20M
         }
 
         public ActionResult UploadifyUpload()

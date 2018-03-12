@@ -16,11 +16,11 @@
         //'width': 80,
         //上传文件的类型  默认为所有文件    'All Files'  ;  '*.*'
         //在浏览窗口底部的文件类型下拉菜单中显示的文本
-        'fileTypeDesc': 'Image Files',
+        'fileTypeDesc': '*.*',
         //允许上传的文件后缀
-        'fileTypeExts': '*.gif; *.jpg; *.png',
+        'fileTypeExts': '*.gif; *.jpg; *.png; *.rar;',
         //上传文件的大小限制
-        'fileSizeLimit': '3MB',
+        'fileSizeLimit': '300000MB',
         //上传数量
         'queueSizeLimit': 25,
         //发送给后台的其他参数通过formData指定
