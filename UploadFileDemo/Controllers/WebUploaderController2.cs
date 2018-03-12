@@ -19,7 +19,7 @@ namespace UploadFileDemo.Controllers
             return View();
         }
 
-        public ActionResult CheckChunk()
+        public ActionResult UploadChunk()
         {
             //如果进行了分片
             if (Request.Form.AllKeys.Any(m => m == "chunk"))
@@ -102,9 +102,23 @@ namespace UploadFileDemo.Controllers
             }
         }
 
-        public ActionResult UploadFile()
+        //检查当前分块是否上传成功 
+        public ActionResult CheckChunk(string fileMd5, string chunk, string chunkSize)
         {
-            return Content("");
+            string folder = Server.MapPath("~/upload/" + fileMd5 + "/");
+            string path = folder + chunk;
+            FileInfo checkFile = new FileInfo(folder + chunk);
+
+            //检查文件是否存在，且大小是否一致  
+            if (checkFile.Exists && checkFile.Length == int.Parse(chunkSize))
+            {
+                return Json(new { ifExist = 1 });
+            }
+            else
+            {
+                //没有上传过  
+                return Json(new { ifExist = 0 });
+            }
         }
     }
 }
