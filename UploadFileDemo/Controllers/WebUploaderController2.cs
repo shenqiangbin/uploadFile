@@ -8,7 +8,8 @@ using System.Web.Mvc;
 namespace UploadFileDemo.Controllers
 {
     /// <summary>
-    /// 参考地址：https://www.cnblogs.com/war-hzl/p/7560083.html
+    /// 参考地址：https://www.cnblogs.com/war-hzl/p/7560083.html 
+    /// 和 http://blog.csdn.net/qq_34698126/article/details/54429721
     /// 测试地址：http://192.168.105.78/uploadfiledemo/WebUploader2
     /// </summary>
     public class WebUploader2Controller : Controller
