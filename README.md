@@ -12,4 +12,14 @@
 
 在配置文件中添加 `<httpRuntime targetFramework="4.5" maxRequestLength="10240" />`
 
+错误：404 错误，文件太大导致的文件上传失败
+
+```
+<security>
+<requestFiltering>
+<requestLimits maxAllowedContentLength="524288000" /><!-- 5GB-->
+</requestFiltering>
+</security>
+```
+
 ## 添加Uploadify的上传功能
